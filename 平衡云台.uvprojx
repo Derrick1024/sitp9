@@ -361,7 +361,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,</Define>
               <Undefine></Undefine>
-              <IncludePath>..\sitp电控;.\delay;.\RTE;.\RTE\Device;.\RTE\Device\STM32F103RC;.\mpu6050_eMPL;.\TIM3_pwm;.\usart;.\mpu6050_eMPL\6050DMP</IncludePath>
+              <IncludePath>..\sitp电控;.\delay;.\RTE;.\RTE\Device;.\RTE\Device\STM32F103RC;.\mpu6050_eMPL;.\TIM3_pwm;.\usart;.\mpu6050_eMPL\6050DMP;.\TIM4_pwm</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -409,6 +409,11 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\stm32f10x_it.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -432,12 +437,12 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>PWM</GroupName>
+          <GroupName>TIM3_PWM</GroupName>
           <Files>
             <File>
-              <FileName>pwm_output.c</FileName>
+              <FileName>TIM3_pwm_output.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\TIM3_pwm\pwm_output.c</FilePath>
+              <FilePath>.\TIM3_pwm\TIM3_pwm_output.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -458,6 +463,26 @@
               <FileName>anbt_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mpu6050_eMPL\6050DMP\anbt_i2c.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>PID</GroupName>
+          <Files>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\pid.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>TIM4_PWM</GroupName>
+          <Files>
+            <File>
+              <FileName>TIM4_pwm_output.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TIM4_pwm\TIM4_pwm_output.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -29,4 +29,6 @@
 .\main.o: .\mpu6050_eMPL\6050DMP\anbt_dmp_driver.h
 .\main.o: d:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
 .\main.o: d:\Keil_v5\ARM\ARMCC\bin\..\include\math.h
-.\main.o: .\TIM3_pwm\pwm_output.h
+.\main.o: .\TIM3_pwm\TIM3_pwm_output.h
+.\main.o: .\TIM4_pwm\TIM4_pwm_output.h
+.\main.o: pid.h

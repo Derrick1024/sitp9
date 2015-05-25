@@ -23,14 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
-#include "bsp_sdio_sdcard.h"	
 
-extern void TimingDelay_Decrement(void);
-
-extern char text[64];
-extern uint8_t usart1_rx_flag;
-u8 sta;
-u8 num;
 
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -142,7 +135,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-	TimingDelay_Decrement();
+	
 }
 
 /******************************************************************************/
@@ -172,43 +165,28 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 	
 		if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
 		{
-			Res =USART_ReceiveData(USART1);//(USART1->DR);	//读取接收到的数据
-			text[num] = Res;
-			num++;
-			
-			if(Res == 0x0d)
+			Res = USART_ReceiveData(USART1);//(USART1->DR);	//读取接收到的数据
+			switch(Res)
 			{
-				sta=1;
-			
+				case 0: 
+					break;
+				case 1: 
+					break;
+				case 2: 
+					break;
+				case 3: 
+					break;
+				case 4: 
+					break;
+				case 5: 
+					break;
+				case 6: 
+					break;
 			}
-			else 
-				if((Res == 0x0a)&&(sta == 1))
-				{
-					text[num]='\0';
-					num=0;
-					sta=0;
-					usart1_rx_flag=1;
-				}
-				else 
-					if(sta==1)
-					{
-						sta=0;
-					}
 		}
 		
 	}
-/*
- * 函数名：SDIO_IRQHandler
- * 描述  ：在SDIO_ITConfig(）这个函数开启了sdio中断	，
- *		     数据传输结束时产生中断
- * 输入  ：无		 
- * 输出  ：无
- */
-void SDIO_IRQHandler(void) 
-{
-  /* Process All SDIO Interrupt Sources */
-  SD_ProcessIRQSrc();
-}
+
 
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
